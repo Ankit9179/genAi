@@ -10,7 +10,8 @@ const NaveBar = () => {
     return (
         <div className="navbar shadow-sm flex justify-between px-4 md:px-8 lg:px-16 items-center">
             <div className="flex-1">
-                <a onClick={() => navigate('/')} className="btn btn-ghost text-xl">GenAi</a>
+                <img className='w-[30px] inline md:w-[90px] sm:w-[70px]' src="logo.png" alt="" />
+                <span onClick={() => navigate('/')} className="text-xl font-bold">GenAi</span>
             </div>
             {user ? (
                 <div className="flex items-center gap-2">
