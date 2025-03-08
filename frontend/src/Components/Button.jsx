@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Mycontext } from '../context/AppContext';
+
 
 const Button = ({ text }) => {
+    const { setShowLogin } = useContext(Mycontext);
+
     return (
-        <button className="btn btn-neutral hover:bg-gray-400 font-bold">{text}</button>
+        <button onClick={() => setShowLogin(true)} className="btn btn-neutral hover:bg-gray-400 font-bold">{text}</button>
     )
 }
 

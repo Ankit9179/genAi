@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Mycontext } from '../context/AppContext';
 
 const NaveBar = () => {
-    const { user } = useContext(Mycontext);
+    const { user, setShowLogin } = useContext(Mycontext);
     const navigate = useNavigate();
 
     return (

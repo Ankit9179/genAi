@@ -5,10 +5,11 @@ export const Mycontext = createContext()
 const AppContextProvider = (props) => {
     //state of this constext function
     const [user, setUser] = useState(false)
+    const [showLogin, setShowLogin] = useState(false)
 
     //value object which cantaining variable and function
     const value = {
-        user, setUser
+        user, setUser, showLogin, setShowLogin
     }
     return (
         <Mycontext.Provider value={value}>
