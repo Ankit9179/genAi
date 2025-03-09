@@ -1,4 +1,17 @@
+import { useContext } from "react";
+import { Mycontext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
+
 const HowToUse = () => {
+    const { user, setShowLogin } = useContext(Mycontext)
+    const navigate = useNavigate()
+    const handleFunction = () => {
+        if (!user) {
+            setShowLogin(true)
+        } else {
+            navigate('/result')
+        }
+    }
     return (
         <div className="min-h-screen flex flex-col items-center justify-center px-4">
             <section className="max-w-4xl mt-10">
@@ -23,8 +36,8 @@ const HowToUse = () => {
                 </div>
             </section>
 
-            <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all">
-                Get Started
+            <button onClick={handleFunction} className=" cursor-pointer mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all">
+                Let's Go
             </button>
         </div>
     );

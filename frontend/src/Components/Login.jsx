@@ -12,7 +12,7 @@ const Login = () => {
     }, [])
     const { setShowLogin } = useContext(Mycontext)
     return (
-        <div className='absolute left-0 ring-0 top-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center w-full'>
+        <div className='fixed left-0 ring-0 top-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center w-full'>
             <from>
                 <section class="rounded-md p-2 bg-white">
                     <div className='text-end justify-end items-end'>
