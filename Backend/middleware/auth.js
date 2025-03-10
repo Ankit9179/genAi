@@ -11,7 +11,7 @@ const getToken = async (req, res, next) => {
       });
     }
     const tokenDecoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(tokenDecoded);
+    // console.log(tokenDecoded);
     if (!tokenDecoded.id) {
       return res.json({
         success: false,
