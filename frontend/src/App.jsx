@@ -7,12 +7,15 @@ import NaveBar from './Components/NaveBar'
 import Footer from './Components/Footer'
 import Login from './Components/Login'
 import { Mycontext } from './context/AppContext'
+import { ToastContainer } from 'react-toastify';
+
 
 const App = () => {
   const { showLogin } = useContext(Mycontext)
   return (
     <div id='container'>
       <NaveBar />
+      <ToastContainer position='bottom-right' />
       {showLogin && <Login />}
       <Routes>
         <Route path='/' element={<Home />} />

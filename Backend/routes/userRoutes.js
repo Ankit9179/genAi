@@ -12,6 +12,6 @@ const userRouter = express.Router();
 //routes
 userRouter.post("/register", userRegistrationController);
 userRouter.post("/login", userLoginController);
-userRouter.post("/credits", getToken, userCreditsController);
+userRouter.get("/credits", getToken, userCreditsController);
 
 export default userRouter;

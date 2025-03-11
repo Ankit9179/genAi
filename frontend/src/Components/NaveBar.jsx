@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Mycontext } from '../context/AppContext';
 
 const NaveBar = () => {
-    const { user, setShowLogin } = useContext(Mycontext);
+    const { user, setShowLogin, credit, logOutFunction } = useContext(Mycontext);
     const navigate = useNavigate();
 
     return (
@@ -15,8 +15,8 @@ const NaveBar = () => {
             </div>
             {user ? (
                 <div className="flex items-center gap-2">
-                    <span className='text-sm font-semibold mr-2'>Credits left: 3</span>
-                    <p className="hidden sm:block">Hi, Ankit</p>
+                    <span className='text-sm font-semibold mr-2'>Credits left: {credit}</span>
+                    <p className="hidden sm:block">Hi, {user.name}</p>
                     <div className='relative group'>
                         <div className="avatar ml-2">
                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -25,7 +25,8 @@ const NaveBar = () => {
                         </div>
                         <div className='absolute hidden group-hover:block top-full right-0 bg-white shadow-md rounded p-2'>
                             <ul>
-                                <li><Button text="LOGOUT" /></li>
+                                {/* <li><Button onClick={logOutFunction} text="LOGOUT" /></li> */}
+                                <button onClick={logOutFunction}>LOGOUT</button>
                             </ul>
                         </div>
                     </div>
