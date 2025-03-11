@@ -1,53 +1,65 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { Mycontext } from '../context/AppContext';
+import { toast } from 'react-toastify';
 
 const Card = () => {
-    const [image, setImage] = useState('./logo.png')
-    const [isImageLoaded, setIsImageLoaded] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const [input, setInput] = useState('')
+  const [image, setImage] = useState('./logo.png')
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [input, setInput] = useState('')
 
-    const onSumbmitHandler = async (e) => {
-        e.preventDefault()
-        console.log(input)
+  const { imageGenerateFunction } = useContext(Mycontext)
+
+  const onSumbmitHandler = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    if (input) {
+      const imageInResult = await imageGenerateFunction(input)
+      setIsImageLoaded(true)
+      setImage(imageInResult)
     }
-    return (
-        <StyledWrapper>
-            <form onSubmit={onSumbmitHandler} className='flex justify-center items-center h-screen mt-4 flex-col'>
-                <div className="card p-2 px-2 bg-black" id="card">
-                    <div className="content">
-                        <img src={image} className='bg-cover' alt="image" />
-                    </div>
-                </div>
-                <p className={!loading ? 'hidden' : ''}>loading.....</p>
-                {
-                    !isImageLoaded &&
-                    <div className="mt-4 flex">
-                        <input
-                            onChange={e => setInput(e.target.value)}
-                            value={input}
-                            type="text"
-                            name="inputname"
-                            className="block w-56 rounded-l-2xl py-1.5 px-2 ring-1 ring-inset ring-gray-400 focus:text-gray-800"
-                        />
-                        <button className="cursor-pointer transition-all  rounded-r-2xl bg-blue-500 text-white px-6 py-2 rounded-lgborder-blue-600 border-b-[4px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">Search</button>
-                    </div>
-                }
+    setLoading(false)
+  }
+  return (
+    <StyledWrapper>
+      <form onSubmit={onSumbmitHandler} className='flex justify-center items-center h-screen mt-4 flex-col'>
+        <div className="card bg-black" id="card">
+          <div className="content">
+            <img src={image} className='bg-cover w-full' alt="image" />
+          </div>
+        </div>
+        <p className={!loading ? 'hidden' : ''}>loading.....</p>
+        {
+          !isImageLoaded &&
+          <div className="mt-4 flex gap-4">
+            <input
+              onChange={e => setInput(e.target.value)}
+              value={input}
+              className="bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-rose-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-4 py-2 shadow-md focus:shadow-lg focus:shadow-rose-400 dark:shadow-md dark:shadow-purple-500"
+              autocomplete="off"
+              placeholder="Search here..."
+              name="input"
+              type="text"
+            />
+            <button class="hover:brightness-110 cursor-pointer hover:animate-pulse font-bold py-3 px-6 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 text-white">Search</button>
+          </div>
+        }
 
-                {
-                    isImageLoaded &&
-                    <div className='flex mt-3 gap-3'>
-                        <p onClick={() => setIsImageLoaded(false)} className="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-gray-500 bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
-                            GenerateAgain
-                        </p>
-                        <a href={image} download className="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
-                            Download
-                        </a>
-                    </div>
-                }
-            </form>
-        </StyledWrapper>
-    );
+        {
+          isImageLoaded &&
+          <div className='flex mt-3 gap-3'>
+            <p onClick={() => setIsImageLoaded(false)} className="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-gray-500 bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
+              GenerateAgain
+            </p>
+            <a href={image} download className="cursor-pointer group relative flex gap-1.5 px-8 py-4 bg-black bg-opacity-80 text-[#f1f1f1] rounded-3xl hover:bg-opacity-70 transition font-semibold shadow-md">
+              Download
+            </a>
+          </div>
+        }
+      </form>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`
