@@ -36,7 +36,7 @@ const HowToUse = () => {
                 </div>
             </section>
 
-            <button onClick={handleFunction} className=" cursor-pointer mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all">
+            <button onClick={handleFunction} className=" cursor-pointer mt-6 px-6 py-3 bg-gray-600 text-black font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:text-white transition-all">
                 Let's Go
             </button>
         </div>

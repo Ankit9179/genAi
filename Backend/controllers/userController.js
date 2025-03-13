@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Razorpay from "razorpay";
 import transactionModel from "../models/transactionModels.js";
-console.log(process.env.PORT);
 
 const userRegistrationController = async (req, res) => {
   try {
@@ -106,7 +105,6 @@ const rasorpayInstance = new Razorpay({
 
 const transactionControllerFunction = async (req, res) => {
   const { userId, planId } = req.body;
-  console.log(userId, planId);
   try {
     if (!userId || !planId) {
       return res.json({ success: false, message: "Missing Detailssss" });
@@ -115,20 +113,20 @@ const transactionControllerFunction = async (req, res) => {
     switch (planId) {
       case "Basic":
         plan = "Basic";
-        credits = 100;
-        amount = 10;
+        credits = 5;
+        amount = 50;
         break;
 
       case "Advance":
         plan = "Advance";
-        credits = 200;
-        amount = 50;
+        credits = 7;
+        amount = 150;
         break;
 
       case "Business":
         plan = "Business";
-        credits = 250;
-        amount = 100;
+        credits = 9;
+        amount = 250;
         break;
 
       default:

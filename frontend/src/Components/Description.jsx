@@ -19,11 +19,8 @@ const Description = () => {
                 {/* Right Side - Content */}
                 <div className="w-full md:w-1/2 mt-6 md:mt-0 md:pl-10 text-center md:text-left">
                     <h2 className="text-3xl font-bold text-gray-800">Welcome to GenAi</h2>
-                    <p className="text-lg text-gray-600 mt-4">
-                        GenAi is an advanced AI-powered platform that helps you generate content, automate tasks,
-                        and enhance productivity. Whether you're a developer, writer, or business owner,
-                        GenAi provides intelligent solutions to make your work easier and more efficient.
-                    </p>
+                    <p className="text-lg text-gray-600 mt-4 tracking-widest">
+                        GenAi is an advanced AI-powered platform designed to reimagine history through stunning visuals. Whether it’s recreating lost moments, restoring old photographs, or visualizing ancient events, GenAi transforms text prompts into breathtaking images that bring the past to life.                    </p>
                 </div>
             </div>
         </>

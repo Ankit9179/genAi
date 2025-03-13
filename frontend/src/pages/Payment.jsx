@@ -9,22 +9,22 @@ const Payment = () => {
     const CardData = [
         {
             plan: "Basic",
-            for: "Best for student and others",
-            price: 10,
-            creditsNumber: 100
+            for: "Best for student and others.",
+            price: 50,
+            creditsNumber: 5
         },
         {
             plan: "Advance",
-            for: "Best for professionals",
-            price: 50,
-            creditsNumber: 500
+            for: "Best for professionals.",
+            price: 150,
+            creditsNumber: 7
         },
 
         {
             plan: "Business",
-            for: "Best for enterprice use",
+            for: "Best for enterprise use.",
             price: 250,
-            creditsNumber: 250
+            creditsNumber: 9
         }
     ];
     const { user, token, setShowLogin, backendUrl, creditBalanceFunction } = useContext(Mycontext)
@@ -130,7 +130,7 @@ const Payment = () => {
                         <div className="flex px-6 pb-8 sm:px-8">
                             <a onClick={() => razorPayPaymentFunction(e.plan)}
                                 aria-describedby="tier-company"
-                                className="flex items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+                                className=" cursor-pointer flex items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                             >
                                 {
                                     user ? "Purchase" : "Get started"
