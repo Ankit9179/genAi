@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
 import { Mycontext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const Payment = () => {
+    const navigate = useNavigate()
     const CardData = [
         {
             plan: "Basic",
@@ -10,7 +14,7 @@ const Payment = () => {
             creditsNumber: 100
         },
         {
-            plan: "Standard",
+            plan: "Advance",
             for: "Best for professionals",
             price: 50,
             creditsNumber: 500
@@ -23,9 +27,54 @@ const Payment = () => {
             creditsNumber: 250
         }
     ];
-    const { user } = useContext(Mycontext)
-    console.log(user)
+    const { user, token, setShowLogin, backendUrl, creditBalanceFunction } = useContext(Mycontext)
 
+    //init payment function
+    const initPamentFunction = async (order) => {
+        const options = {
+            key: import.meta.env.VITE_RAZOR_PAY_KEY,
+            amount: order.amount,
+            currency: order.currency,
+            name: "Credits Payment",
+            description: "Credits Payment",
+            order_id: order.id,
+            recepit: order.recepit,
+            handler: async (response) => {
+                try {
+                    const { data } = await axios.post(backendUrl + '/api/v1/user/verify-rozer', response, { headers: { token } })
+                    if (data.success) {
+                        creditBalanceFunction()
+                        navigate('/')
+                        toast.success("Credits Added !")
+                    }
+                } catch (error) {
+                    toast.error(error.message)
+                }
+            }
+        }
+
+
+        const rzp = new window.Razorpay(options)
+        rzp.open()
+    }
+
+    //razorpay functions
+    const razorPayPaymentFunction = async (planId) => {
+        // console.log(planId)
+        try {
+            if (!user) {
+                navigate('/login')
+            }
+
+            //sending data to backend
+            const { data } = await axios.post(backendUrl + '/api/v1/user/pay-rozer', { planId: planId }, { headers: { token } })
+            if (data.success) {
+                initPamentFunction(data.order)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
     return (
 
         <div className=' flex flex-col justify-center items-center h-full gap-10 mt-16'>
@@ -79,10 +128,9 @@ const Payment = () => {
                             </div>
                         </div>
                         <div className="flex px-6 pb-8 sm:px-8">
-                            <a
+                            <a onClick={() => razorPayPaymentFunction(e.plan)}
                                 aria-describedby="tier-company"
                                 className="flex items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
-                                href="#"
                             >
                                 {
                                     user ? "Purchase" : "Get started"

@@ -1,11 +1,10 @@
+import dotend from "dotenv/config";
 import express from "express";
 import cors from "cors";
-import dotend from "dotenv";
 import connectionDBFuntion from "./config/mongoDB.js";
 import userRouter from "./routes/userRoutes.js";
 import imageRouter from "./routes/imageRoutes.js";
 
-dotend.config();
 const PORT = process.env.PORT || 4000;
 const app = express();
 

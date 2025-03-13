@@ -59,7 +59,7 @@ const AppContextProvider = (props) => {
     const imageGenerateFunction = async (prompt) => {
         try {
             const { data } = await axios.post(backendUrl + '/api/v1/image/generate-image', { prompt }, { headers: { token } })
-            if (data) {
+            if (data.success) {
                 creditBalanceFunction();
                 return data.resultImage
             } else {

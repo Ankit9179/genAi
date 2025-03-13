@@ -15,7 +15,7 @@ const NaveBar = () => {
             </div>
             {user ? (
                 <div className="flex items-center gap-2">
-                    <span className='text-sm font-semibold mr-2'>Credits left: {credit}</span>
+                    <span onClick={() => navigate('/buy')} className='cursor-pointer text-sm font-semibold mr-2'>Credits left: {credit}</span>
                     <p className="hidden sm:block">Hi, {user.name}</p>
                     <div className='relative group'>
                         <div className="avatar ml-2">
