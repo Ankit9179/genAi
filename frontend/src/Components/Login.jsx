@@ -56,12 +56,12 @@ const Login = () => {
             <from onSubmit={handlerFunction}>
                 <section className="rounded-md p-2 bg-white">
                     <div className='text-end justify-end items-end'>
-                        <span onClick={() => setShowLogin(false)} className='  text-2xl cursor-pointer mr-2 '>X</span>
+                        <span onClick={() => setShowLogin(false)} className='  text-2xl font-bold text-black cursor-pointer mr-2 '>X</span>
                     </div>
                     <div className="flex items-center justify-center my-3">
                         <div className="xl:mx-auto shadow-md p-4 xl:w-full xl:max-w-sm 2xl:max-w-md">
                             <div className="mb-2"></div>
-                            <h2 className="text-2xl font-bold leading-tight text-center">
+                            <h2 className="text-2xl font-bold text-black leading-tight text-center">
                                 {state}
                             </h2>
                             <form className="mt-5" >

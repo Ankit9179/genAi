@@ -16,7 +16,7 @@ const NaveBar = () => {
             {user ? (
                 <div className="flex items-center gap-2">
                     <b onClick={() => navigate('/buy')} className='cursor-pointer text-sm font-bold text-black mr-2'>Credits left: {credit}</b>
-                    <p className="hidden font-bold text-black sm:block">Hi, {user.name}</p>
+                    <p className="font-bold text-black hidden  sm:block">Hi, {user.name}</p>
                     <div className='relative group'>
                         <div className="avatar ml-2">
                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -33,7 +33,7 @@ const NaveBar = () => {
                 </div>
             ) : (
                 <div className="flex items-center gap-2">
-                    <p onClick={() => navigate('/buy')} className='font-semibold mr-2 cursor-pointer'>Pricing</p>
+                    <p onClick={() => navigate('/buy')} className='font-semibold text-black text-center mr-2 cursor-pointer'>Pricing</p>
                     <Button text="LOGIN" />
                 </div>
             )}
