@@ -11,12 +11,12 @@ const NaveBar = () => {
         <div className="navbar shadow-sm flex justify-between px-4 md:px-8 lg:px-16 items-center">
             <div className="flex-1">
                 <img className='w-[30px] inline md:w-[90px] sm:w-[70px]' src="logo.png" alt="" />
-                <b onClick={() => navigate('/')} className="text-xl font-bold">GenAi</b>
+                <b onClick={() => navigate('/')} className="text-xl font-bold text-black">GenAi</b>
             </div>
             {user ? (
                 <div className="flex items-center gap-2">
-                    <b onClick={() => navigate('/buy')} className='cursor-pointer text-sm font-semibold mr-2'>Credits left: {credit}</b>
-                    <p className="hidden sm:block">Hi, {user.name}</p>
+                    <b onClick={() => navigate('/buy')} className='cursor-pointer text-sm font-bold text-black mr-2'>Credits left: {credit}</b>
+                    <p className="hidden font-bold text-black sm:block">Hi, {user.name}</p>
                     <div className='relative group'>
                         <div className="avatar ml-2">
                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
