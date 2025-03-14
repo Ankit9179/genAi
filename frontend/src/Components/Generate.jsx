@@ -25,8 +25,8 @@ const Generate = () => {
                         class="bg-gradient-to-b from-stone-200/40 to-white/80 rounded-[8px] px-2 py-2"
                     >
                         <div class="flex gap-2 items-center cursor-pointer">
-                            <h1>Generate Image from here !</h1>
-                            <span class="font-semibold">Get Started</span>
+                            <p>Generate Image from here !</p>
+                            <b class="font-semibold">Get Started</b>
                         </div>
                     </div>
                 </button>

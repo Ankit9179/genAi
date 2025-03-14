@@ -5,7 +5,7 @@ const Description = () => {
     return (
         <>
 
-            <h1 className='font-bold text-center text-3xl'>About GenAi</h1>
+            <b className='font-bold text-center text-3xl'>About GenAi</b>
             <div className="flex flex-col md:flex-row items-center max-w-6xl mx-auto mt-10 px-6 pb-4">
                 {/* Left Side - Image */}
                 <div className="w-full md:w-1/2 flex justify-center">

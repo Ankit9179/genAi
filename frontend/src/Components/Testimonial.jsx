@@ -31,7 +31,7 @@ const Testimonials = () => {
                     <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
                         <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 mx-auto rounded-full" />
                         <p>{testimonial.star}</p>
-                        <h3 className="text-xl font-semibold mt-4">{testimonial.name}</h3>
+                        <b className="text-xl font-semibold mt-4">{testimonial.name}</b>
                         <p className="text-gray-600 mt-2 italic">"{testimonial.feedback}"</p>
                     </div>
                 ))}
