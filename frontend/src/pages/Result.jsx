@@ -189,7 +189,7 @@ const Card = () => {
 
         {/* Input & Button */}
         {!isImageLoaded && (
-          <div className="mt-4 flex gap-4">
+          <div className="mt-4 flex gap-4 sm:mx-4 md:mx-4 lg:mx-4">
             <input
               onChange={(e) => setInput(e.target.value)}
               value={input}

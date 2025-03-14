@@ -104,7 +104,7 @@ const Payment = () => {
                     Our Plans
                 </span>
             </button>
-            <h1 className='text-2xl font-bold'>Choose the plan</h1>
+            <h1 className='text-2xl text-black text-center font-bold'>Choose the plan</h1>
 
             <div className='card-container flex flex-col md:flex-row gap-4 flex-wrap justify-center items-center'>
                 {CardData.map((e, index) => (
