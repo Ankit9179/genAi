@@ -21,12 +21,12 @@ const Header = () => {
 
             <section className="max-w-3xl text-center">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                    GenAi is your go-to AI for generating stunning images from your prompts! Whether you're a designer, developer, writer, or just someone exploring creative possibilities, GenAi brings your ideas to life with AI-generated visuals.
+                    GenAi is your go-to AI for generating stunning images from your prompts! Whether you're a designer, developer, writer, or just someone exploring creative possibilities, GenAi brings your ideas to life with AI-Generated visuals.
                     <br />
                     Simply enter a prompt, and watch as GenAi transforms your words into unique, high-quality images. From artistic illustrations to realistic renders, the possibilities are endless!
                 </p>
                 <br />
-                <span className='font-bold text-black text-2xl'>🤖 Start creating with GenAi today and turn imagination into reality!</span>
+                <p className='font-bold text-black text-2xl'>🤖 Start creating with GenAi today and turn imagination into reality!</p>
             </section>
 
             <button onClick={handleFunction} className="cursor-pointer mt-6 px-6 py-3 bg-gray-600 text-black font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:text-white transition-all">

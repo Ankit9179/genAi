@@ -11,7 +11,7 @@ const NaveBar = () => {
         <div className="navbar shadow-sm flex justify-between px-4 md:px-8 lg:px-16 items-center">
             <div className="flex-1">
                 <img className='w-[30px] inline md:w-[90px] sm:w-[70px]' src="logo.png" alt="" />
-                <span onClick={() => navigate('/')} className="text-xl font-bold">GenAi</span>
+                <p onClick={() => navigate('/')} className="text-xl font-bold">GenAi</p>
             </div>
             {user ? (
                 <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ const NaveBar = () => {
                 </div>
             ) : (
                 <div className="flex items-center gap-2">
-                    <span onClick={() => navigate('/buy')} className='font-semibold mr-2 cursor-pointer'>Pricing</span>
+                    <p onClick={() => navigate('/buy')} className='font-semibold mr-2 cursor-pointer'>Pricing</p>
                     <Button text="LOGIN" />
                 </div>
             )}
