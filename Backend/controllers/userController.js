@@ -13,6 +13,11 @@ const userRegistrationController = async (req, res) => {
         message: "Missing details",
       });
     }
+    //check user axistence
+    const isUserExist = await userModel.findOne({ email });
+    if (isUserExist) {
+      return res.json({ success: false, message: "User Already Exist" });
+    }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const useData = {
