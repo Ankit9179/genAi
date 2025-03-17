@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Mycontext } from '../context/AppContext';
 import axios from 'axios'
 import { toast } from 'react-toastify';
+import LoginWithGoogleBtn from '../firebase/LoginWithGoogleBtn';
 
 const Login = () => {
     const [state, setState] = useState("Login")
@@ -112,7 +113,7 @@ const Login = () => {
                                             />
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className='text-center'>
                                         <a className='text-blue-500 cursor-pointer mb-4' href="">Forgot password?</a>
                                         {state !== "Login" ? <p className="mt-2 text-base text-gray-600">
                                             Already have an account? <span onClick={() => setState("Login")} className='text-blue-500 cursor-pointer'>Sign In</span>
@@ -126,6 +127,8 @@ const Login = () => {
                                         >
                                             {state === "Login" ? "login" : "Create Account"}
                                         </button>
+                                        {state === "Login" && <button className='mt-3'><LoginWithGoogleBtn /></button>}
+
                                     </div>
                                 </div>
                             </form>
