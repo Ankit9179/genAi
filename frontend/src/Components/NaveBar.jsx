@@ -48,6 +48,7 @@ import React, { useContext, useState } from 'react';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
 import { Mycontext } from '../context/AppContext';
+import DropDownComponent from './DropDownComponent';
 
 const NaveBar = () => {
     const { user, setShowLogin, credit, logOutFunction } = useContext(Mycontext);
@@ -59,6 +60,7 @@ const NaveBar = () => {
             <div className="flex-1">
                 <img className='w-[30px] inline md:w-[90px] sm:w-[70px]' src="logo.png" alt="" />
                 <b onClick={() => navigate('/')} className="text-xl font-bold text-black">GenAi</b>
+                <DropDownComponent />
             </div>
             {user ? (
                 <div className="flex items-center gap-2">

@@ -9,6 +9,7 @@ import Login from './Components/Login'
 import { Mycontext } from './context/AppContext'
 import { ToastContainer } from 'react-toastify';
 import NotFound from './pages/Notfound'
+import CodeReview from './pages/CodeReview'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/result' element={<Result />} />
         <Route path='/buy' element={<Payment />} />
+        <Route path='/codereview' element={<CodeReview />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
       <Footer />
