@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Mycontext } from '../context/AppContext';
 import Markdown from 'react-markdown'
+import { useNavigate } from 'react-router-dom';
+import LoadingButton from '../Components/LoadingButton';
 
 
 
@@ -16,9 +18,14 @@ const CodeReview = () => {
         return 1+1;
         }`)
     const { backendUrl, token, } = useContext(Mycontext)
+    const navigate = useNavigate()
     useEffect(() => {
+        if (!token) {
+            navigate('/')
+            toast.warning("You have to login first")
+        }
         prismjs.highlightAll();
-    })
+    }, [token])
 
     //
     const reviwFunction = async (e) => {
@@ -57,7 +64,7 @@ const CodeReview = () => {
                         onClick={() => reviwFunction()}
                         className="review absolute bottom-3 right-4 px-3 bg-cyan-900 font-bold text-white text-center py-2 rounded cursor-pointer hover:bg-blue-600"
                     >
-                        {isData ? "......." : "Review"}
+                        {isData ? <LoadingButton /> : "Review"}
                     </button>
                 </div>
                 <div className="right flex-1 p-4 bg-gray-500 rounded-lg overflow-auto">

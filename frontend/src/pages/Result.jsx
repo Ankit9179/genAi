@@ -147,10 +147,11 @@
 // export default Card;
 
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Mycontext } from '../context/AppContext';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Card = () => {
   const [image, setImage] = useState('./logo.png');
@@ -158,7 +159,15 @@ const Card = () => {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState('');
 
-  const { imageGenerateFunction } = useContext(Mycontext);
+  const { imageGenerateFunction, token } = useContext(Mycontext);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/')
+      toast.warning("You have to login first")
+    }
+  }, [token])
 
   const onSumbmitHandler = async (e) => {
     e.preventDefault();

@@ -5,7 +5,7 @@ const DropDownComponent = () => {
     const navigate = useNavigate()
     return (
         <><div className="dropdown dropdown-start">
-            <div tabIndex={0} role="button" className="btn m-1">⬇️</div>
+            <div tabIndex={0} role="button" className="btn m-1 bg-transparent border-0 text-1xl">⬇️</div>
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                 <li onClick={() => navigate('/result')}><a>Generate pics with GenAi</a></li>
                 <li onClick={() => navigate('/codereview')} > <a>Code review with GenAi</a></li>
