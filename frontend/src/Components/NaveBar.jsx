@@ -58,8 +58,8 @@ const NaveBar = () => {
     return (
         <div className="navbar shadow-sm flex justify-between px-4 md:px-8 lg:px-16 items-center">
             <div className="flex-1">
-                <img className='w-[30px] inline md:w-[90px] sm:w-[70px]' src="logo.png" alt="" />
-                <b onClick={() => navigate('/')} className="text-xl font-bold text-black">GenAi</b>
+                <img className='w-[30px] inline md:w-[90px] sm:w-[70px] ' src="logo.png" alt="" />
+                <b onClick={() => navigate('/')} className="text-xl font-bold hover:cursor-pointer text-black">GenAi</b>
                 <DropDownComponent />
             </div>
             {user ? (

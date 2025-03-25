@@ -36,6 +36,7 @@ const CodeReview = () => {
             if (data) {
                 setReviewData(data.geminiResult)
                 setIsData(false)
+                setCode("")
             }
         } catch (error) {
             toast.error(error.message)
@@ -44,22 +45,28 @@ const CodeReview = () => {
     return (
         <>
             <main className="flex flex-col gap-1 p-2 md:flex-row h-screen">
-                <div className="left flex-1 p-4 relative bg-black rounded-lg">
-                    <div className="code mb-4">
+                <div className="left flex-1 p-4 relative bg-black rounded-lg clear-both ">
+                    <div className="code mb-4 h-full overflow-auto rounded-lg">
                         <Editor
                             value={code}
+                            className='overflow-auto h-full'
                             onValueChange={code => setCode(code)}
                             highlight={code => prismjs.highlight(code, prismjs.languages.javascript, "javascript")}
                             padding={10}
                             style={{
                                 fontFamily: '"Fira code", "Fira Mono", monospace',
                                 fontSize: 19,
-                                height: "100%",
+                                minHeight: "100%",
                                 width: "100%",
-                                color: "#ffff"
+                                color: "#fff",
+                                backgroundColor: "#000",
+                                whiteSpace: "pre-wrap",  // Important for breaking long lines
+                                wordBreak: "break-word", // Optional for extra breaking
+                                overflow: "auto",
                             }}
                         />
                     </div>
+
                     <button
                         onClick={() => reviwFunction()}
                         className="review absolute bottom-3 right-4 px-3 bg-cyan-900 font-bold text-white text-center py-2 rounded cursor-pointer hover:bg-blue-600"

@@ -3,13 +3,13 @@ import userPic from '../assets/dd.jpg'
 
 const testimonials = [
     {
-        name: "John Doe",
+        name: "Anjani",
         star: "⭐⭐⭐⭐⭐",
         feedback: "GenAi has completely transformed the way I work. The AI-powered tools are incredibly efficient and easy to use!",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_gRu8ypBGz8QKIfphz_uaV0jUuGrui4LTIzz4b4-HC17EitLkPrNeBwR1V4OGhMVaZH8&usqp=CA"
     },
     {
-        name: "Sarah Smith",
+        name: "Kishor",
         star: "⭐⭐⭐",
         feedback: "I love how intuitive and powerful GenAi is. It saves me hours of work every day!",
         image: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
